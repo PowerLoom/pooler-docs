@@ -1,0 +1,37 @@
+---
+id: get-overall-daily-stats
+title: "Get overall daily stats"
+description: "This API returns the latest snapshot for the dailyStats which includes the following information:"
+sidebar_label: "Get overall daily stats"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["default"],"description":"This API returns the latest snapshot for the dailyStats which includes the following information:\n\n- 24-hour volume and 24-hour percentage change\n- TVL and its 24-hour percentage change\n- 24-hour Fees and its percentage change","responses":{"200":{"description":"Successful response","content":{"application/json":{}}}},"method":"get","path":"/v2-daily-stats","servers":[{"url":"http://{{base_url}}"}],"security":[{"apikeyAuth":[]}],"securitySchemes":{"apikeyAuth":{"type":"http","scheme":"apikey"}},"info":{"title":"Pooler API","version":"1.0.0"},"postman":{"name":"Get overall daily stats","description":{"content":"This API returns the latest snapshot for the dailyStats which includes the following information:\n\n- 24-hour volume and 24-hour percentage change\n- TVL and its 24-hour percentage change\n- 24-hour Fees and its percentage change","type":"text/plain"},"url":{"path":["v2-daily-stats"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/pooler/pooler-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get overall daily stats
+
+
+
+This API returns the latest snapshot for the dailyStats which includes the following information:
+
+- 24-hour volume and 24-hour percentage change
+- TVL and its 24-hour percentage change
+- 24-hour Fees and its percentage change
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful response
+
+</div><div><MimeTabs schemaType={"response"}></MimeTabs></div></TabItem></ApiTabs></div>
+      

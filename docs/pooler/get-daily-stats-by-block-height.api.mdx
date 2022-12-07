@@ -1,0 +1,35 @@
+---
+id: get-daily-stats-by-block-height
+title: "Get daily stats by block height"
+description: "This API returns aggregated data snapshot for daily stats at specified blockHeight (which can be retrieved from snapshots list API)."
+sidebar_label: "Get daily stats by block height"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["default"],"description":"This API returns aggregated data snapshot for daily stats at specified blockHeight (which can be retrieved from snapshots list API).\n\nResponse structure is same as explained in overall daily Stats API.","parameters":[{"name":"block_height","in":"path","schema":{"type":"string"},"required":true}],"responses":{"200":{"description":"Successful response","content":{"application/json":{}}}},"method":"get","path":"/v2-daily-stats/{block_height}","servers":[{"url":"http://{{base_url}}"}],"security":[{"apikeyAuth":[]}],"securitySchemes":{"apikeyAuth":{"type":"http","scheme":"apikey"}},"info":{"title":"Pooler API","version":"1.0.0"},"postman":{"name":"Get daily stats by block height","description":{"content":"This API returns aggregated data snapshot for daily stats at specified blockHeight (which can be retrieved from snapshots list API).\n\nResponse structure is same as explained in overall daily Stats API.","type":"text/plain"},"url":{"path":["v2-daily-stats",":block_height"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"block_height"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/pooler/pooler-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get daily stats by block height
+
+
+
+This API returns aggregated data snapshot for daily stats at specified blockHeight (which can be retrieved from snapshots list API).
+
+Response structure is same as explained in overall daily Stats API.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"block_height","in":"path","schema":{"type":"string"},"required":true}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful response
+
+</div><div><MimeTabs schemaType={"response"}></MimeTabs></div></TabItem></ApiTabs></div>
+      

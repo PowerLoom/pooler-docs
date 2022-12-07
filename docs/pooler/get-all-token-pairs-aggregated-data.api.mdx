@@ -1,0 +1,43 @@
+---
+id: get-all-token-pairs-aggregated-data
+title: "Get all token pairs aggregated data"
+description: "This API provides the latest aggregated data for the tracked token-pairs such as trade volume for the last 24-hour, trade volume for last 7-days."
+sidebar_label: "Get all token pairs aggregated data"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["default"],"description":"This API provides the latest aggregated data for the tracked token-pairs such as trade volume for the last 24-hour, trade volume for last 7-days.\n\n#### Response Details\n\nReturns an array of list of token pairs sorted based on liquidity with following information for each pair\n\n- 24-hour trade volume USD\n- 7-days trade volume USD\n- Head and tail CIDs of DAG Chain used to arrive at 24-hour and 7d volume\n- 24-hour fees\n- Liquidity,TradeVolume(s) of each Token","responses":{"200":{"description":"Successful response","content":{"application/json":{}}}},"method":"get","path":"/v2-pairs","servers":[{"url":"http://{{base_url}}"}],"security":[{"apikeyAuth":[]}],"securitySchemes":{"apikeyAuth":{"type":"http","scheme":"apikey"}},"info":{"title":"Pooler API","version":"1.0.0"},"postman":{"name":"Get all token pairs aggregated data","description":{"content":"This API provides the latest aggregated data for the tracked token-pairs such as trade volume for the last 24-hour, trade volume for last 7-days.\n\n#### Response Details\n\nReturns an array of list of token pairs sorted based on liquidity with following information for each pair\n\n- 24-hour trade volume USD\n- 7-days trade volume USD\n- Head and tail CIDs of DAG Chain used to arrive at 24-hour and 7d volume\n- 24-hour fees\n- Liquidity,TradeVolume(s) of each Token","type":"text/plain"},"url":{"path":["v2-pairs"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/pooler/pooler-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get all token pairs aggregated data
+
+
+
+This API provides the latest aggregated data for the tracked token-pairs such as trade volume for the last 24-hour, trade volume for last 7-days.
+
+#### Response Details
+
+Returns an array of list of token pairs sorted based on liquidity with following information for each pair
+
+- 24-hour trade volume USD
+- 7-days trade volume USD
+- Head and tail CIDs of DAG Chain used to arrive at 24-hour and 7d volume
+- 24-hour fees
+- Liquidity,TradeVolume(s) of each Token
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful response
+
+</div><div><MimeTabs schemaType={"response"}></MimeTabs></div></TabItem></ApiTabs></div>
+      
