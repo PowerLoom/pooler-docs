@@ -18,25 +18,12 @@ const sidebars = {
   openApiSidebar: [
     {
       type: "category",
-      label: "Petstore",
-      link: {
-        type: "generated-index",
-        title: "Petstore API",
-        description:
-          "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
-        slug: "/category/petstore-api"
-      },
-      // @ts-ignore
-      items: require("./docs/petstore/sidebar.js")
-    },
-    {
-      type: "category",
       label: "Pooler",
       link: {
         type: "generated-index",
         title: "Pooler API",
         description:
-          "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+          "Pooler API.",
         slug: "/category/pooler-api"
       },
       // @ts-ignore
@@ -45,16 +32,6 @@ const sidebars = {
 
   ]
 
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['hello'],
-    },
-  ],
-   */
 };
 
 module.exports = sidebars;

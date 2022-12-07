@@ -71,11 +71,6 @@ const config = {
             label: "Intro"
           },
           {
-            label: "Petstore API",
-            position: "left",
-            to: "/docs/category/petstore-api"
-          },
-          {
             label: "Pooler API",
             position: "left",
             to: "/docs/category/pooler-api"
@@ -138,21 +133,9 @@ const config = {
         id: "openapi",
         docsPluginId: "classic",
         config: {
-          petstore: {
-            specPath: "examples/petstore.yaml",
-            outputDir: "docs/petstore",
-            downloadUrl:
-              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
           pooler: {
             specPath: "examples/pooler.yaml",
             outputDir: "docs/pooler",
-            downloadUrl:
-              "https://files.slack.com/files-pri/T01BM7EKF97-F04E0GYA8UD/out.yml",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag"
