@@ -57,6 +57,28 @@ const config = {
           hideable: true
         }
       },
+      languageTabs: [
+        {
+          highlight: "bash",
+          language: "curl",
+          logoClass: "bash",
+        },
+        {
+          highlight: "javascript",
+          language: "nodejs",
+          logoClass: "nodejs",
+        },
+        {
+          highlight: "python",
+          language: "python",
+          logoClass: "python",
+        },
+        {
+          highlight: "go",
+          language: "go",
+          logoClass: "go",
+        },
+      ],
       navbar: {
         title: "Pooler Docs",
         logo: {
