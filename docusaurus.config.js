@@ -141,6 +141,11 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} PowerLoom, Inc. Built with Docusaurus.`
       },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme
