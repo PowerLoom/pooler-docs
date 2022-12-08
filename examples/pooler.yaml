@@ -9,400 +9,509 @@ servers:
     description: Quickswap
   - url: https://sushiswap.powerloom.io/api/
     description: Sushiswap 
+paths:
+  /snapshots/{pair_contract_address}:
+    get:
+      summary: Get Past Snapshots
+      operationId: get_past_snapshots_snapshots__pair_contract_address__get
+      parameters:
+        - required: true
+          schema:
+            title: Pair Contract Address
+            type: string
+          name: pair_contract_address
+          in: path
+        - required: false
+          schema:
+            title: Maxcount
+            type: integer
+          name: maxCount
+          in: query
+        - required: false
+          schema:
+            title: Data
+            type: string
+            default: 'false'
+          name: data
+          in: query
+        - required: false
+          schema:
+            title: Stream
+            type: string
+            default: pair_total_reserves
+          name: stream
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /pair_address:
+    get:
+      summary: Get Pair Contract From Tokens
+      operationId: get_pair_contract_from_tokens_pair_address_get
+      parameters:
+        - required: true
+          schema:
+            title: Token0
+            type: string
+          name: token0
+          in: query
+        - required: true
+          schema:
+            title: Token1
+            type: string
+          name: token1
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-pair/{pair_contract_address}:
+    get:
+      summary: Get Single V2 Pair Data
+      operationId: get_single_v2_pair_data_v2_pair__pair_contract_address__get
+      parameters:
+        - required: true
+          schema:
+            title: Pair Contract Address
+            type: string
+          name: pair_contract_address
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-pairs:
+    get:
+      summary: Get V2 Pairs Data
+      operationId: get_v2_pairs_data_v2_pairs_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/api/v2-pairs:
+    get:
+      summary: Get V2 Pairs Data
+      operationId: get_v2_pairs_data_v1_api_v2_pairs_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v2-pairs/snapshots:
+    get:
+      summary: Get V2 Pairs Snapshots
+      operationId: get_v2_pairs_snapshots_v2_pairs_snapshots_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/api/v2-pairs/snapshots:
+    get:
+      summary: Get V2 Pairs Snapshots
+      operationId: get_v2_pairs_snapshots_v1_api_v2_pairs_snapshots_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v2-pairs/{block_height}:
+    get:
+      summary: Get V2 Pairs At Block Height
+      operationId: get_v2_pairs_at_block_height_v2_pairs__block_height__get
+      parameters:
+        - required: true
+          schema:
+            title: Block Height
+            type: integer
+          name: block_height
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/api/v2-pairs/{block_height}:
+    get:
+      summary: Get V2 Pairs At Block Height
+      operationId: get_v2_pairs_at_block_height_v1_api_v2_pairs__block_height__get
+      parameters:
+        - required: true
+          schema:
+            title: Block Height
+            type: integer
+          name: block_height
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-daily-stats/snapshots:
+    get:
+      summary: Get V2 Daily Stats Snapshot
+      operationId: get_v2_daily_stats_snapshot_v2_daily_stats_snapshots_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/api/v2-daily-stats/snapshots:
+    get:
+      summary: Get V2 Daily Stats Snapshot
+      operationId: get_v2_daily_stats_snapshot_v1_api_v2_daily_stats_snapshots_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v2-daily-stats/{block_height}:
+    get:
+      summary: Get V2 Daily Stats By Block
+      operationId: get_v2_daily_stats_by_block_v2_daily_stats__block_height__get
+      parameters:
+        - required: true
+          schema:
+            title: Block Height
+            type: integer
+          name: block_height
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/api/v2-daily-stats/{block_height}:
+    get:
+      summary: Get V2 Daily Stats By Block
+      operationId: get_v2_daily_stats_by_block_v1_api_v2_daily_stats__block_height__get
+      parameters:
+        - required: true
+          schema:
+            title: Block Height
+            type: integer
+          name: block_height
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-pairs-recent-logs:
+    get:
+      summary: Get V2 Pairs Recent Logs
+      operationId: get_v2_pairs_recent_logs_v2_pairs_recent_logs_get
+      parameters:
+        - required: true
+          schema:
+            title: Pair Contract
+            type: string
+          name: pair_contract
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-tokens-recent-logs:
+    get:
+      summary: Get V2 Tokens Recent Logs
+      operationId: get_v2_tokens_recent_logs_v2_tokens_recent_logs_get
+      parameters:
+        - required: true
+          schema:
+            title: Token Contract
+            type: string
+          name: token_contract
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-token/{token_addr}:
+    get:
+      summary: Get Single Token Aggregate Data
+      operationId: get_single_token_aggregate_data_v2_token__token_addr__get
+      parameters:
+        - required: true
+          schema:
+            title: Token Addr
+            type: string
+          name: token_addr
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-tokens:
+    get:
+      summary: Get V2 Tokens
+      operationId: get_v2_tokens_v2_tokens_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/api/v2-tokens:
+    get:
+      summary: Get V2 Tokens
+      operationId: get_v2_tokens_v1_api_v2_tokens_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v2-tokens/snapshots:
+    get:
+      summary: Get V2 Tokens Snapshots
+      operationId: get_v2_tokens_snapshots_v2_tokens_snapshots_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/api/v2-tokens/snapshots:
+    get:
+      summary: Get V2 Tokens Snapshots
+      operationId: get_v2_tokens_snapshots_v1_api_v2_tokens_snapshots_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v2-tokens/{block_height}:
+    get:
+      summary: Get V2 Tokens Data By Block
+      operationId: get_v2_tokens_data_by_block_v2_tokens__block_height__get
+      parameters:
+        - required: true
+          schema:
+            title: Block Height
+            type: integer
+          name: block_height
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/api/v2-tokens/{block_height}:
+    get:
+      summary: Get V2 Tokens Data By Block
+      operationId: get_v2_tokens_data_by_block_v1_api_v2_tokens__block_height__get
+      parameters:
+        - required: true
+          schema:
+            title: Block Height
+            type: integer
+          name: block_height
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v2-daily-stats:
+    get:
+      summary: Get V2 Pairs Daily Stats
+      operationId: get_v2_pairs_daily_stats_v2_daily_stats_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/api/v2-daily-stats:
+    get:
+      summary: Get V2 Pairs Daily Stats
+      operationId: get_v2_pairs_daily_stats_v1_api_v2_daily_stats_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
 components:
   securitySchemes:
     api_key:
       type: apiKey
       name: X-API-Key
       in: header
-paths:
-  /snapshots/{pair_contract_address}:
-    get:
-      tags:
-        - default
-      summary: Get past snapshots for a token pair
-      description: >-
-        This API provides an option to fetch last `n` snapshots for a token
-        pair. It supports fetching the `tradeVolume` or the `pairTotalReserves`
-        snapshots.
-
-
-        ## Response Details
-
-
-        Returns an array of snapshots for the token pair. data.payload is
-        returned only if data flag is passed as true. Otherwise only the
-        snapshot CID stored in IPFS is returned.
-
-
-        ### Pair Total Reserves Response
-
-
-        Response payload is stored in data.payload which contains TokenReserves
-        and TokenReserves in USD for both tokens in the pair. Reserves are
-        returned for each blockHeight in the snapshot. It also has a data.cid
-        field which has the CID of the snapshot stored on IPFS.
-
-
-        ### TradeVolume Response
-
-
-        Response payload is stored in data.payload or the blockHeights in
-        between which this snapshot is generated. Payload contains the
-        following:
-
-
-        - raw categorized transaction logs(Swap. Mint and Burn) of the token
-        pair
-
-        - computed TradeVolume (both in native token value and USD) for each
-        token categorized by Swap, Mint and Burn
-
-        - computed overall TradeVolume
-
-        - Total fees
-      parameters:
-        - name: maxCount
-          in: query
-          schema:
-            type: integer
-          description: Number of snapshots to fetch
-          example: '3'
-        - name: stream
-          in: query
-          schema:
+  schemas:
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
             type: string
-          description: >-
-            Specifies the stream from which snapshots have to be returned,
-            currently only trade_volume or pair_total_reserves are supported.
-          example: trade_volume
-        - name: data
-          in: query
-          schema:
-            type: boolean
-          description: >-
-            If set to true returns snapshot(s) data,  otherwise only the IPFS
-            CID of the snapshot(s) is returned
-          example: 'true'
-        - name: pair_contract_address
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs-recent-logs:
-    get:
-      tags:
-        - default
-      summary: Get recent transaction logs for a token pair
-      description: >-
-        Get the most recent `upto 75` transaction logs for any token pair.
-
-
-        #### Response Details
-
-
-        Response is an array of transaction logs enriched with additional
-        information such as Trade Amount in USD, token amounts etc.
-      parameters:
-        - name: pair_contract
-          in: query
-          schema:
-            type: string
-          example: '{{pair_contract_address}}'
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs:
-    get:
-      tags:
-        - default
-      summary: Get all token pairs aggregated data
-      description: >-
-        This API provides the latest aggregated data for the tracked token-pairs
-        such as trade volume for the last 24-hour, trade volume for last 7-days.
-
-
-        #### Response Details
-
-
-        Returns an array of list of token pairs sorted based on liquidity with
-        following information for each pair
-
-
-        - 24-hour trade volume USD
-
-        - 7-days trade volume USD
-
-        - Head and tail CIDs of DAG Chain used to arrive at 24-hour and 7d
-        volume
-
-        - 24-hour fees
-
-        - Liquidity,TradeVolume(s) of each Token
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs/snapshots:
-    get:
-      tags:
-        - default
-      summary: Get token pairs aggregated data snapshot list
-      description: >-
-        This API returns the last 20 block heights at which aggregated data
-        snapshots for all the tracked token pairs are available.
-
-
-        Response is an array of blockHeights.
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs/{block_height}:
-    get:
-      tags:
-        - default
-      summary: Get token pairs aggregated data at a block height
-      description: >-
-        This API returns aggregated data snapshot for all the tracked token
-        pairs at specified blockHeight (which can be retrieved from snapshots
-        list API).
-
-
-        Response structure is same as explained in token pairs aggregated data
-        API.
-      parameters:
-        - name: block_height
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pair/{pair_contract_address}:
-    get:
-      tags:
-        - default
-      summary: Get single token pair aggregated data
-      description: >-
-        This API provides the latest aggregated data for the provided token-pair
-        contract address such as trade volume for the last 24-hour, trade volume
-        for last 7-days.
-      parameters:
-        - name: pair_contract_address
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /pair_address:
-    get:
-      tags:
-        - default
-      summary: Get token pair contract address by contained tokens addresses
-      description: >-
-        This API provides the pair contract address from the protocol which
-        contains token1 and token2.
-      parameters:
-        - name: token0
-          in: query
-          schema:
-            type: string
-          description: 'address of 1st token contained in the pair contract '
-          example: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
-        - name: token1
-          in: query
-          schema:
-            type: string
-          description: address of 2nd token contained in the pair contract
-          example: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens:
-    get:
-      tags:
-        - default
-      summary: Get tokens aggregated data
-      description: >-
-        This API provides aggregated data for all tracked tokens such as trade
-        volume for the last 24-hour, trade volume for last 7-days snapshotted at
-        a specific block height.
-
-
-        #### Response Details
-
-
-        Returns an array of list of tokens sorted based on liquidity with
-        following information for each token
-
-
-        - 24-hour trade volume USD
-
-        - 7-days trade volume USD
-
-        - Liquidity
-
-        - Price of the token in USD at that height
-
-        - 24-hour percentage Price change for the token
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-token/{token_contract_address}:
-    get:
-      tags:
-        - default
-      summary: Get single token aggregated data snapshot
-      parameters:
-        - name: token_contract_address
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens/snapshots:
-    get:
-      tags:
-        - default
-      summary: Get token aggregated data snapshots list
-      description: >-
-        This API returns the last 20 block heights at which aggregated data
-        snapshots for all the tracked tokens are available.
-
-
-        Response is an array of blockHeights.
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens/{block_height}:
-    get:
-      tags:
-        - default
-      summary: Get token aggregated data by block height
-      description: >-
-        This API returns aggregated data snapshot for all the tracked tokens at
-        specified blockHeight (which can be retrieved from snapshots list API).
-
-
-        Response structure is same as explained in token aggregated data API.
-      parameters:
-        - name: block_height
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens-recent-logs:
-    get:
-      tags:
-        - default
-      summary: Get recent transaction logs for a token
-      description: >-
-        Get the most recent `upto 75` transaction logs for any token.
-
-
-        #### Response Details
-
-
-        Response is an array of transaction logs enriched with additional
-        information such as Trade Amount in USD, token amounts etc.
-      parameters:
-        - name: token_contract
-          in: query
-          schema:
-            type: string
-          example: '{{token_contract_address}}'
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-daily-stats:
-    get:
-      tags:
-        - default
-      summary: Get overall daily stats
-      description: >-
-        This API returns the latest snapshot for the dailyStats which includes
-        the following information:
-
-
-        - 24-hour volume and 24-hour percentage change
-
-        - TVL and its 24-hour percentage change
-
-        - 24-hour Fees and its percentage change
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-daily-stats/snapshots:
-    get:
-      tags:
-        - default
-      summary: Get daily stats snapshot list
-      description: >-
-        This API returns the last 20 block heights at which snapshots for
-        dailyStats are available.
-
-
-        Response is an array of blockHeights.
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-daily-stats/{block_height}:
-    get:
-      tags:
-        - default
-      summary: Get daily stats by block height
-      description: >-
-        This API returns aggregated data snapshot for daily stats at specified
-        blockHeight (which can be retrieved from snapshots list API).
-
-
-        Response structure is same as explained in overall daily Stats API.
-      parameters:
-        - name: block_height
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
