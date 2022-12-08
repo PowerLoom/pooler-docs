@@ -29,7 +29,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/PowerLoom/pooler-docs/",
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi
         },
@@ -93,9 +93,9 @@ const config = {
             label: "Intro"
           },
           {
-            label: "Pooler API",
+            label: "API",
             position: "left",
-            to: "/docs/category/pooler-api"
+            to: "/docs/API/intro"
           },
           {
             href: "https://github.com/PowerLoom/pooler-docs",
@@ -143,8 +143,7 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "csharp", "php"]
+        darkTheme: darkCodeTheme
       }
     }),
 
@@ -157,10 +156,10 @@ const config = {
         config: {
           pooler: {
             specPath: "examples/pooler.yaml",
-            outputDir: "docs/pooler",
+            outputDir: "docs/API",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "tag"
+              //categoryLinkSource: "tag"
             }
           }
         }

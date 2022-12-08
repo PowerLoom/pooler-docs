@@ -7,7 +7,7 @@ hide_title: true
 hide_table_of_contents: true
 api: {"tags":["default"],"description":"This API returns the last 20 block heights at which aggregated data snapshots for all the tracked token pairs are available.\n\nResponse is an array of blockHeights.","security":[{"api_key":[]}],"responses":{"200":{"description":"Successful response"}},"method":"get","path":"/v2-pairs/snapshots","servers":[{"url":"https://uniswapv2-ethindia.powerloom.io/api/","description":"Uniswap V2"},{"url":"https://quickswap.powerloom.io/api/","description":"Quickswap"},{"url":"https://sushiswap.powerloom.io/api/","description":"Sushiswap"}],"securitySchemes":{"api_key":{"type":"apiKey","name":"X-API-Key","in":"header"}},"info":{"title":"Pooler API","version":"1.0.0"},"postman":{"name":"Get token pairs aggregated data snapshot list","description":{"content":"This API returns the last 20 block heights at which aggregated data snapshots for all the tracked token pairs are available.\n\nResponse is an array of blockHeights.","type":"text/plain"},"url":{"path":["v2-pairs","snapshots"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"X-API-Key","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
 sidebar_class_name: "get api-method"
-info_path: docs/pooler/pooler-api
+info_path: docs/API/pooler-api
 ---
 
 import ApiTabs from "@theme/ApiTabs";
