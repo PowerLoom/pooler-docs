@@ -88,6 +88,7 @@ const config = {
           src: "img/favicon_white.png"
         },
         items: [
+          /*
           {
             type: "doc",
             docId: "intro",
@@ -98,6 +99,12 @@ const config = {
             label: "API",
             position: "left",
             to: "/API/overview"
+          },
+          */
+          {
+            href: "https://powerloom.io",
+            label: "Website",
+            position: "right"
           },
           {
             href: "https://github.com/PowerLoom/pooler-docs",
