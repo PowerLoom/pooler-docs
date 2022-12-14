@@ -5,9 +5,9 @@ info:
 servers:
   - url: https://uniswapv2-ethindia.powerloom.io/api/
     description: Uniswap V2
-  - url: https://quickswap.powerloom.io/api/
+  - url: https://quickswap-ethindia.powerloom.io/api/
     description: Quickswap
-  - url: https://sushiswap.powerloom.io/api/
+  - url: https://sushiswap-ethindia.powerloom.io/api/
     description: Sushiswap 
 components:
   securitySchemes:

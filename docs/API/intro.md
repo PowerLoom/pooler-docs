@@ -15,7 +15,7 @@ The snapshotting is currently done on various Defi protocols like UniswapV2(runn
 
 You can try out the APIs directly from this website. `base_url` is in the given format - `https://<protocol>.powerloom.io/api` where `protocol` can be `quickswap-ethindia`, `sushiswap-ethindia`, `uniswapv2-ethindia`.
 
-![Changing Base URL in UI](./Screenshot_2022-12-08_at_6.01.25_PM.png)
+![Changing Base URL in UI](./Screenshot_2022-12-09_at_1.58.51_PM.png)
 
 All the API endpoints are available for the given protocols.
 
