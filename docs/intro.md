@@ -19,6 +19,9 @@ Pooler by itself, performs the following functions:
 	* and submits these snapshots to audit-protocol
 
 
+![Pooler workflow](Pooler_docs_intro.png)
+
+
 This specific implementation is called Pooler since it tracks Uniswap v2 'pools'.
 
 Together with an Audit Protocol instance, they form a recently released PoC whose objectives were 
