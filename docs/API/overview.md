@@ -6,10 +6,14 @@ sidebar_position: 1
 
 ## Overview
 
-This is the API documentation to access various data points snapshotted by PowerLoom protocol. This is *exclusively* for hackers participating in [ETH India 2022](https://www.notion.so/Powerloom-Protocol-EthIndia-2022-9dabaa6bf419406889f943ac90276c33)!
+The Pooler API endpoints documented on the sidepane are connector APIs that adapt the low level APIs opened up by Audit Protocol. The connectors ensure that the low level details are hidden from developers interested in datapoints and logic specific to Uniswap v2. They have been [opened up on hosted instances](#hosted-api) of Pooler that snapshot different DeFi protocol data that are compatible with Uniswap v2 AMM architecture:
+* Uniswap v2(Ethereum mainnet)
+* SushiSwap(Etherum mainnet)
+* QuickSwap (Polygon mainnet)
 
-The snapshotting is currently done on various Defi protocols like UniswapV2(running on Eth), SushiSwap(running on Eth), and QuickSwap (running on Polygon)
+This is *exclusively* setup for [ETH India 2022](https://www.notion.so/Powerloom-Protocol-EthIndia-2022-9dabaa6bf419406889f943ac90276c33).
 
+![Pooler API connector workflow](../pooler_api_adaptation.png)
 
 ## Hosted API
 
@@ -39,12 +43,3 @@ Follow the steps to generate the API key to access the mentioned API endpoints i
     
     ![Screenshot 2022-11-30 at 11.02.31 PM.png](./Screenshot_2022-12-14_at_6.27.54_PM.png)
     
-
-## API Responses
-
-*Note: All the APIs are HTTP GET and return a response code of* 
-
-- *200 along with a JSON response on success*
-- *404 in case of NOT Found.*
-    
-    Note: Most of the fields in the response are self-explanatory, the ones that need explicit brief are mentioned in the table below.
