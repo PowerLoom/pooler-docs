@@ -12,7 +12,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon_white.png",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -114,7 +114,11 @@ const config = {
             items: [
               {
                 label: "Intro",
-                to: "/docs/intro"
+                to: "/"
+              }
+              ,{
+                label: "API",
+                to: "/API/overview"
               }
             ]
           },
