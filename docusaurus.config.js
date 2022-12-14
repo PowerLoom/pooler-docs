@@ -25,6 +25,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -33,6 +34,7 @@ const config = {
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi
         },
+        blog: false,
         /*
         blog: {
           showReadingTime: true,
@@ -82,8 +84,8 @@ const config = {
       navbar: {
         title: "Pooler Docs",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg"
+          alt: "PowerLoom Logo",
+          src: "img/favicon_white.png"
         },
         items: [
           {
@@ -95,7 +97,7 @@ const config = {
           {
             label: "API",
             position: "left",
-            to: "/docs/API/intro"
+            to: "/API/intro"
           },
           {
             href: "https://github.com/PowerLoom/pooler-docs",

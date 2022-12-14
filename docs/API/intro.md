@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Pooler API
+# Pooler API Overview and Endpoints
 
 ## Overview
 
@@ -29,15 +29,15 @@ Follow the steps to generate the API key to access the mentioned API endpoints i
 
 1. Visit [ETHIndia Hacker Dashboard](https://ethindia22.powerloom.io/) and enter your email to Sign In.
 
-![Screenshot 2022-11-30 at 10.56.19 PM.png](./Screenshot_2022-11-30_at_10.56.19_PM.png)
+![Screenshot 2022-11-30 at 10.56.19 PM.png](./Screenshot_2022-12-14_at_6.21.41_PM.png)
 
 1. You will see a pop-up as shown below. *Note: Don’t close this tab*
     
-    ![Screenshot 2022-11-30 at 10.57.36 PM.png](./Screenshot_2022-11-30_at_10.57.36_PM.png)
+    ![Screenshot 2022-11-30 at 10.57.36 PM.png](./Screenshot_2022-12-14_at_6.21.51_PM.png)
     
 2. Login through the link provided on the email and go back to the [Dashboard](https://ethindia22.powerloom.io/) tab to get the API key. It should look as shown below
     
-    ![Screenshot 2022-11-30 at 11.02.31 PM.png](./Screenshot_2022-11-30_at_11.02.31_PM.png)
+    ![Screenshot 2022-11-30 at 11.02.31 PM.png](./Screenshot_2022-12-14_at_6.27.54_PM.png)
     
 
 ## API Responses
