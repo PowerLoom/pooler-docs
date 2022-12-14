@@ -97,7 +97,7 @@ const config = {
           {
             label: "API",
             position: "left",
-            to: "/API/intro"
+            to: "/API/overview"
           },
           {
             href: "https://github.com/PowerLoom/pooler-docs",
