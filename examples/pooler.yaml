@@ -3,11 +3,11 @@ info:
   title: Pooler API
   version: 1.0.0
 servers:
-  - url: https://uniswapv2-ethindia.powerloom.io/api/
+  - url: https://uniswapv2.powerloom.io/api/
     description: Uniswap V2
-  - url: https://quickswap-ethindia.powerloom.io/api/
+  - url: https://quickswap-polygon.powerloom.io/api/
     description: Quickswap
-  - url: https://sushiswap-ethindia.powerloom.io/api/
+  - url: https://sushiswap-eth.powerloom.io/api/
     description: Sushiswap 
 components:
   securitySchemes:
