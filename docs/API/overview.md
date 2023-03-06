@@ -28,7 +28,7 @@ All the API endpoints are available for the given protocols.
 
 Follow the steps to generate the API key to access the mentioned API endpoints in the postman collection:
 
-1. Visit [Hacker Dashboard](https://pooler-api-dashboard.powerloom.io/) and enter your email to Sign In.
+1. Visit [Pooler API Dashboard](https://pooler-api-dashboard.powerloom.io/) and enter your email to Sign In.
 
 ![Screenshot 2022-11-30 at 10.56.19 PM.png](./Screenshot_2022-12-14_at_6.21.41_PM.png)
 
