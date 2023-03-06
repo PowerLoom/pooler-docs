@@ -11,15 +11,12 @@ The Pooler API endpoints documented on the sidepane are connector APIs that adap
 * SushiSwap(Etherum mainnet)
 * QuickSwap (Polygon mainnet)
 
-This is *exclusively* setup for [ETH India 2022](https://www.notion.so/Powerloom-Protocol-EthIndia-2022-9dabaa6bf419406889f943ac90276c33).
-
 ![Pooler API connector workflow](../pooler_api_adaptation.png)
 
 ## Hosted API
+You can try out the APIs directly from this website. `base_url` is in the given format - `https://<protocol>.powerloom.io/api` where `protocol` can be `uniswapv2`, `quickswap-polygon`, `sushiswap-eth`.
 
-You can try out the APIs directly from this website. `base_url` is in the given format - `https://<protocol>.powerloom.io/api` where `protocol` can be `quickswap-ethindia`, `sushiswap-ethindia`, `uniswapv2-ethindia`.
-
-![Changing Base URL in UI](./Screenshot_2022-12-09_at_1.58.51_PM.png)
+![Changing Base URL in UI](./base_url_selection.png)
 
 All the API endpoints are available for the given protocols.
 
@@ -31,7 +28,7 @@ All the API endpoints are available for the given protocols.
 
 Follow the steps to generate the API key to access the mentioned API endpoints in the postman collection:
 
-1. Visit [ETHIndia Hacker Dashboard](https://ethindia22.powerloom.io/) and enter your email to Sign In.
+1. Visit [Pooler API Dashboard](https://pooler-api-dashboard.powerloom.io/) and enter your email to Sign In.
 
 ![Screenshot 2022-11-30 at 10.56.19 PM.png](./Screenshot_2022-12-14_at_6.21.41_PM.png)
 
@@ -39,7 +36,7 @@ Follow the steps to generate the API key to access the mentioned API endpoints i
     
     ![Screenshot 2022-11-30 at 10.57.36 PM.png](./Screenshot_2022-12-14_at_6.21.51_PM.png)
     
-2. Login through the link provided on the email and go back to the [Dashboard](https://ethindia22.powerloom.io/) tab to get the API key. It should look as shown below
+2. Login through the link provided on the email and go back to the [Dashboard](https://pooler-api-dashboard.powerloom.io/) tab to get the API key. It should look as shown below
     
     ![Screenshot 2022-11-30 at 11.02.31 PM.png](./Screenshot_2022-12-14_at_6.27.54_PM.png)
     
