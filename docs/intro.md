@@ -3,7 +3,7 @@ slug: /
 sidebar_position: 1
 ---
 
-# Pooler Intro
+# Snapshotter Node Intro
 
 ## Overview
 

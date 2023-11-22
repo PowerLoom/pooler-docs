@@ -2,19 +2,18 @@
 sidebar_position: 1
 ---
 
-# Pooler API Overview and Endpoints
+# Snapshotter core API Overview and Endpoints
 
 ## Overview
 
-The Pooler API endpoints documented on the sidepane are connector APIs that adapt the low level APIs opened up by Audit Protocol. The connectors ensure that the low level details are hidden from developers interested in datapoints and logic specific to Uniswap v2. They have been [opened up on hosted instances](#hosted-api) of Pooler that snapshot different DeFi protocol data that are compatible with Uniswap v2 AMM architecture:
+The Snapshotter core API endpoints documented on the sidepane are connector APIs that adapt the low level APIs opened up by a Snapshotter Node. The connectors ensure that the low level details are hidden from developers interested in datapoints and logic specific to a use case. They have been [opened up on hosted instances](#hosted-api) of Pooler that snapshot different DeFi protocol data that are compatible with Uniswap v2 AMM architecture:
 * Uniswap v2(Ethereum mainnet)
-* SushiSwap(Etherum mainnet)
-* QuickSwap (Polygon mainnet)
+* Phase 2 Quests (ZkEvm mainnet)
 
 ![Pooler API connector workflow](../pooler_api_adaptation.png)
 
 ## Hosted API
-You can try out the APIs directly from this website. `base_url` is in the given format - `https://<protocol>.powerloom.io/api` where `protocol` can be `uniswapv2`, `quickswap-polygon`, `sushiswap-eth`.
+You can try out the APIs directly from this website. `base_url` is in the given format - `https://<protocol>.powerloom.io/api` where `protocol` can be `uniswapv2`, `phase2`.
 
 ![Changing Base URL in UI](./base_url_selection.png)
 

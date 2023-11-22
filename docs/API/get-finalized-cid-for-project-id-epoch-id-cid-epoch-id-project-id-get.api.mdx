@@ -1,0 +1,47 @@
+---
+id: get-finalized-cid-for-project-id-epoch-id-cid-epoch-id-project-id-get
+title: "Get Finalized Cid For Project Id Epoch Id"
+description: "Get finalized cid for a given project_id and epoch_id."
+sidebar_label: "Get Finalized Cid For Project Id Epoch Id"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get finalized cid for a given project_id and epoch_id.\n\nArgs:\n    request (Request): The incoming request.\n    response (Response): The outgoing response.\n    project_id (str): The project id.\n    epoch_id (int): The epoch id.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.\n\nReturns:\n    dict: The finalized cid for the given project_id and epoch_id.","operationId":"get_finalized_cid_for_project_id_epoch_id_cid__epoch_id___project_id___get","parameters":[{"required":true,"schema":{"title":"Project Id","type":"string"},"name":"project_id","in":"path"},{"required":true,"schema":{"title":"Epoch Id","type":"integer"},"name":"epoch_id","in":"path"}],"security":[{"api_key":[]}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"title":"HTTPValidationError","type":"object","properties":{"detail":{"title":"Detail","type":"array","items":{"title":"ValidationError","required":["loc","msg","type"],"type":"object","properties":{"loc":{"title":"Location","type":"array","items":{"anyOf":[{"type":"string"},{"type":"integer"}]}},"msg":{"title":"Message","type":"string"},"type":{"title":"Error Type","type":"string"}}}}}}}}}},"method":"get","path":"/cid/{epoch_id}/{project_id}/","servers":[{"url":"https://<TODO>/api/","description":"Uniswap V2"},{"url":"https://<TODO>/api/","description":"Phase 2 Quests"}],"securitySchemes":{"api_key":{"type":"apiKey","name":"X-API-Key","in":"header"}},"info":{"title":"Snapshotter Core API","version":"0.1.0"},"postman":{"name":"Get Finalized Cid For Project Id Epoch Id","description":{"content":"Get finalized cid for a given project_id and epoch_id.\n\nArgs:\n    request (Request): The incoming request.\n    response (Response): The outgoing response.\n    project_id (str): The project id.\n    epoch_id (int): The epoch id.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.\n\nReturns:\n    dict: The finalized cid for the given project_id and epoch_id.","type":"text/plain"},"url":{"path":["cid",":epoch_id",":project_id",""],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"project_id"},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"epoch_id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"X-API-Key","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: API/snapshotter-core-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Finalized Cid For Project Id Epoch Id
+
+
+
+Get finalized cid for a given project_id and epoch_id.
+
+Args:
+    request (Request): The incoming request.
+    response (Response): The outgoing response.
+    project_id (str): The project id.
+    epoch_id (int): The epoch id.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+Returns:
+    dict: The finalized cid for the given project_id and epoch_id.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"required":true,"schema":{"title":"Project Id","type":"string"},"name":"project_id","in":"path"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"required":true,"schema":{"title":"Epoch Id","type":"integer"},"name":"epoch_id","in":"path"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"422"} value={"422"}><div>
+
+Validation Error
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>detail</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>loc</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div><div><span className={"badge badge--info"}>anyOf</span><SchemaTabs><TabItem label={"MOD1"} value={"0-item-properties"}><li><div><strong>string</strong></div></li></TabItem><TabItem label={"MOD2"} value={"1-item-properties"}><li><div><strong>integer</strong></div></li></TabItem></SchemaTabs></div></div></div></details></SchemaItem><SchemaItem collapsible={false} name={"msg"} required={false} schemaDescription={undefined} schemaName={"Message"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={false} schemaDescription={undefined} schemaName={"Error Type"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        0\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

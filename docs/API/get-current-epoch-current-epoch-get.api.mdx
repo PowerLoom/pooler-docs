@@ -1,0 +1,42 @@
+---
+id: get-current-epoch-current-epoch-get
+title: "Get Current Epoch"
+description: "Get the current epoch data from the protocol state contract."
+sidebar_label: "Get Current Epoch"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get the current epoch data from the protocol state contract.\n\nArgs:\n    request (Request): The incoming request object.\n    response (Response): The outgoing response object.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.\n    Defaults to Depends(rate_limit_auth_check,).\n\nReturns:\n    dict: A dictionary containing the current epoch data.","operationId":"get_current_epoch_current_epoch_get","security":[{"api_key":[]}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}},"method":"get","path":"/current_epoch","servers":[{"url":"https://<TODO>/api/","description":"Uniswap V2"},{"url":"https://<TODO>/api/","description":"Phase 2 Quests"}],"securitySchemes":{"api_key":{"type":"apiKey","name":"X-API-Key","in":"header"}},"info":{"title":"Snapshotter Core API","version":"0.1.0"},"postman":{"name":"Get Current Epoch","description":{"content":"Get the current epoch data from the protocol state contract.\n\nArgs:\n    request (Request): The incoming request object.\n    response (Response): The outgoing response object.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.\n    Defaults to Depends(rate_limit_auth_check,).\n\nReturns:\n    dict: A dictionary containing the current epoch data.","type":"text/plain"},"url":{"path":["current_epoch"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"X-API-Key","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: API/snapshotter-core-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Current Epoch
+
+
+
+Get the current epoch data from the protocol state contract.
+
+Args:
+    request (Request): The incoming request object.
+    response (Response): The outgoing response object.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.
+    Defaults to Depends(rate_limit_auth_check,).
+
+Returns:
+    dict: A dictionary containing the current epoch data.
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

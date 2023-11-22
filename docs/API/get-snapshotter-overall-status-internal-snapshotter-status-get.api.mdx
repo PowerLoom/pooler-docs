@@ -1,0 +1,41 @@
+---
+id: get-snapshotter-overall-status-internal-snapshotter-status-get
+title: "Get Snapshotter Overall Status"
+description: "Returns the overall status of the snapshotter."
+sidebar_label: "Get Snapshotter Overall Status"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Returns the overall status of the snapshotter.\n\nArgs:\n    request (Request): The incoming request.\n    response (Response): The outgoing response.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).\n\nReturns:\n    dict: A dictionary containing the snapshotter status.","operationId":"get_snapshotter_overall_status_internal_snapshotter_status_get","security":[{"api_key":[]}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}},"method":"get","path":"/internal/snapshotter/status","servers":[{"url":"https://<TODO>/api/","description":"Uniswap V2"},{"url":"https://<TODO>/api/","description":"Phase 2 Quests"}],"securitySchemes":{"api_key":{"type":"apiKey","name":"X-API-Key","in":"header"}},"info":{"title":"Snapshotter Core API","version":"0.1.0"},"postman":{"name":"Get Snapshotter Overall Status","description":{"content":"Returns the overall status of the snapshotter.\n\nArgs:\n    request (Request): The incoming request.\n    response (Response): The outgoing response.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).\n\nReturns:\n    dict: A dictionary containing the snapshotter status.","type":"text/plain"},"url":{"path":["internal","snapshotter","status"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"X-API-Key","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: API/snapshotter-core-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Snapshotter Overall Status
+
+
+
+Returns the overall status of the snapshotter.
+
+Args:
+    request (Request): The incoming request.
+    response (Response): The outgoing response.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+Returns:
+    dict: A dictionary containing the snapshotter status.
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

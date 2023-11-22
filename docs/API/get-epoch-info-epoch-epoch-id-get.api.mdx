@@ -1,0 +1,46 @@
+---
+id: get-epoch-info-epoch-epoch-id-get
+title: "Get Epoch Info"
+description: "Get epoch information for a given epoch ID."
+sidebar_label: "Get Epoch Info"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get epoch information for a given epoch ID.\n\nArgs:\n    request (Request): The incoming request object.\n    response (Response): The outgoing response object.\n    epoch_id (int): The epoch ID for which to retrieve information.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to rate_limit_auth_check.\n\nReturns:\n    dict: A dictionary containing epoch information including timestamp, block number, and epoch end.","operationId":"get_epoch_info_epoch__epoch_id__get","parameters":[{"required":true,"schema":{"title":"Epoch Id","type":"integer"},"name":"epoch_id","in":"path"}],"security":[{"api_key":[]}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"title":"HTTPValidationError","type":"object","properties":{"detail":{"title":"Detail","type":"array","items":{"title":"ValidationError","required":["loc","msg","type"],"type":"object","properties":{"loc":{"title":"Location","type":"array","items":{"anyOf":[{"type":"string"},{"type":"integer"}]}},"msg":{"title":"Message","type":"string"},"type":{"title":"Error Type","type":"string"}}}}}}}}}},"method":"get","path":"/epoch/{epoch_id}","servers":[{"url":"https://<TODO>/api/","description":"Uniswap V2"},{"url":"https://<TODO>/api/","description":"Phase 2 Quests"}],"securitySchemes":{"api_key":{"type":"apiKey","name":"X-API-Key","in":"header"}},"info":{"title":"Snapshotter Core API","version":"0.1.0"},"postman":{"name":"Get Epoch Info","description":{"content":"Get epoch information for a given epoch ID.\n\nArgs:\n    request (Request): The incoming request object.\n    response (Response): The outgoing response object.\n    epoch_id (int): The epoch ID for which to retrieve information.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to rate_limit_auth_check.\n\nReturns:\n    dict: A dictionary containing epoch information including timestamp, block number, and epoch end.","type":"text/plain"},"url":{"path":["epoch",":epoch_id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"epoch_id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"X-API-Key","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: API/snapshotter-core-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Epoch Info
+
+
+
+Get epoch information for a given epoch ID.
+
+Args:
+    request (Request): The incoming request object.
+    response (Response): The outgoing response object.
+    epoch_id (int): The epoch ID for which to retrieve information.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to rate_limit_auth_check.
+
+Returns:
+    dict: A dictionary containing epoch information including timestamp, block number, and epoch end.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"required":true,"schema":{"title":"Epoch Id","type":"integer"},"name":"epoch_id","in":"path"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"422"} value={"422"}><div>
+
+Validation Error
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>detail</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>loc</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div><div><span className={"badge badge--info"}>anyOf</span><SchemaTabs><TabItem label={"MOD1"} value={"0-item-properties"}><li><div><strong>string</strong></div></li></TabItem><TabItem label={"MOD2"} value={"1-item-properties"}><li><div><strong>integer</strong></div></li></TabItem></SchemaTabs></div></div></div></details></SchemaItem><SchemaItem collapsible={false} name={"msg"} required={false} schemaDescription={undefined} schemaName={"Message"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={false} schemaDescription={undefined} schemaName={"Error Type"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        0\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

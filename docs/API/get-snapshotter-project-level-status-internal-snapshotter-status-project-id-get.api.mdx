@@ -1,0 +1,47 @@
+---
+id: get-snapshotter-project-level-status-internal-snapshotter-status-project-id-get
+title: "Get Snapshotter Project Level Status"
+description: "Get snapshotter project level status."
+sidebar_label: "Get Snapshotter Project Level Status"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get snapshotter project level status.\n\nArgs:\n    request (Request): The request object.\n    response (Response): The response object.\n    project_id (str): The project ID.\n    data (bool, optional): Whether to include data in the response. Defaults to False.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.\n\nReturns:\n    dict: The snapshotter project status.","operationId":"get_snapshotter_project_level_status_internal_snapshotter_status__project_id__get","parameters":[{"required":true,"schema":{"title":"Project Id","type":"string"},"name":"project_id","in":"path"},{"required":false,"schema":{"title":"Data","type":"boolean","default":false},"name":"data","in":"query"}],"security":[{"api_key":[]}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"title":"HTTPValidationError","type":"object","properties":{"detail":{"title":"Detail","type":"array","items":{"title":"ValidationError","required":["loc","msg","type"],"type":"object","properties":{"loc":{"title":"Location","type":"array","items":{"anyOf":[{"type":"string"},{"type":"integer"}]}},"msg":{"title":"Message","type":"string"},"type":{"title":"Error Type","type":"string"}}}}}}}}}},"method":"get","path":"/internal/snapshotter/status/{project_id}","servers":[{"url":"https://<TODO>/api/","description":"Uniswap V2"},{"url":"https://<TODO>/api/","description":"Phase 2 Quests"}],"securitySchemes":{"api_key":{"type":"apiKey","name":"X-API-Key","in":"header"}},"info":{"title":"Snapshotter Core API","version":"0.1.0"},"postman":{"name":"Get Snapshotter Project Level Status","description":{"content":"Get snapshotter project level status.\n\nArgs:\n    request (Request): The request object.\n    response (Response): The response object.\n    project_id (str): The project ID.\n    data (bool, optional): Whether to include data in the response. Defaults to False.\n    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.\n\nReturns:\n    dict: The snapshotter project status.","type":"text/plain"},"url":{"path":["internal","snapshotter","status",":project_id"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"key":"data","value":""}],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"project_id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"X-API-Key","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: API/snapshotter-core-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Snapshotter Project Level Status
+
+
+
+Get snapshotter project level status.
+
+Args:
+    request (Request): The request object.
+    response (Response): The response object.
+    project_id (str): The project ID.
+    data (bool, optional): Whether to include data in the response. Defaults to False.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+Returns:
+    dict: The snapshotter project status.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"required":true,"schema":{"title":"Project Id","type":"string"},"name":"project_id","in":"path"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"required":false,"schema":{"title":"Data","type":"boolean","default":false},"name":"data","in":"query"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"422"} value={"422"}><div>
+
+Validation Error
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>detail</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>loc</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div><div><span className={"badge badge--info"}>anyOf</span><SchemaTabs><TabItem label={"MOD1"} value={"0-item-properties"}><li><div><strong>string</strong></div></li></TabItem><TabItem label={"MOD2"} value={"1-item-properties"}><li><div><strong>integer</strong></div></li></TabItem></SchemaTabs></div></div></div></details></SchemaItem><SchemaItem collapsible={false} name={"msg"} required={false} schemaDescription={undefined} schemaName={"Message"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={false} schemaDescription={undefined} schemaName={"Error Type"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        0\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

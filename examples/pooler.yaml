@@ -1,408 +1,478 @@
-openapi: 3.0.0
+openapi: 3.0.2
 info:
-  title: Pooler API
-  version: 1.0.0
+  title: Snapshotter Core API
+  version: 0.1.0
 servers:
-  - url: https://uniswapv2.powerloom.io/api/
+  - url: https://<TODO>/api/
     description: Uniswap V2
-  - url: https://quickswap-polygon.powerloom.io/api/
-    description: Quickswap
-  - url: https://sushiswap-eth.powerloom.io/api/
-    description: Sushiswap 
+  - url: https://<TODO>/api/
+    description: Phase 2 Quests
+paths:
+  /health:
+    get:
+      summary: Health Check
+      description: |-
+        Endpoint to check the health of the Snapshotter service.
+
+        Parameters:
+        request (Request): The incoming request object.
+        response (Response): The outgoing response object.
+
+        Returns:
+        dict: A dictionary containing the status of the service.
+      operationId: health_check_health_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /current_epoch:
+    get:
+      summary: Get Current Epoch
+      description: |-
+        Get the current epoch data from the protocol state contract.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.
+            Defaults to Depends(rate_limit_auth_check,).
+
+        Returns:
+            dict: A dictionary containing the current epoch data.
+      operationId: get_current_epoch_current_epoch_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /epoch/{epoch_id}:
+    get:
+      summary: Get Epoch Info
+      description: |-
+        Get epoch information for a given epoch ID.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            epoch_id (int): The epoch ID for which to retrieve information.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: A dictionary containing epoch information including timestamp, block number, and epoch end.
+      operationId: get_epoch_info_epoch__epoch_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Epoch Id
+            type: integer
+          name: epoch_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /last_finalized_epoch/{project_id}:
+    get:
+      summary: Get Project Last Finalized Epoch Info
+      description: |-
+        Get the last finalized epoch information for a given project.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            project_id (str): The ID of the project to get the last finalized epoch information for.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: A dictionary containing the last finalized epoch information for the given project.
+      operationId: get_project_last_finalized_epoch_info_last_finalized_epoch__project_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /data/{epoch_id}/{project_id}/:
+    get:
+      summary: Get Data For Project Id Epoch Id
+      description: |-
+        Get data for a given project and epoch ID.
+
+        Args:
+            request (Request): The incoming request.
+            response (Response): The outgoing response.
+            project_id (str): The ID of the project.
+            epoch_id (int): The ID of the epoch.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+        Returns:
+            dict: The data for the given project and epoch ID.
+      operationId: get_data_for_project_id_epoch_id_data__epoch_id___project_id___get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+        - required: true
+          schema:
+            title: Epoch Id
+            type: integer
+          name: epoch_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /cid/{epoch_id}/{project_id}/:
+    get:
+      summary: Get Finalized Cid For Project Id Epoch Id
+      description: |-
+        Get finalized cid for a given project_id and epoch_id.
+
+        Args:
+            request (Request): The incoming request.
+            response (Response): The outgoing response.
+            project_id (str): The project id.
+            epoch_id (int): The epoch id.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: The finalized cid for the given project_id and epoch_id.
+      operationId: get_finalized_cid_for_project_id_epoch_id_cid__epoch_id___project_id___get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+        - required: true
+          schema:
+            title: Epoch Id
+            type: integer
+          name: epoch_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /internal/snapshotter/status:
+    get:
+      summary: Get Snapshotter Overall Status
+      description: |-
+        Returns the overall status of the snapshotter.
+
+        Args:
+            request (Request): The incoming request.
+            response (Response): The outgoing response.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+        Returns:
+            dict: A dictionary containing the snapshotter status.
+      operationId: get_snapshotter_overall_status_internal_snapshotter_status_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /internal/snapshotter/status/{project_id}:
+    get:
+      summary: Get Snapshotter Project Level Status
+      description: |-
+        Get snapshotter project level status.
+
+        Args:
+            request (Request): The request object.
+            response (Response): The response object.
+            project_id (str): The project ID.
+            data (bool, optional): Whether to include data in the response. Defaults to False.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: The snapshotter project status.
+      operationId: get_snapshotter_project_level_status_internal_snapshotter_status__project_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+        - required: false
+          schema:
+            title: Data
+            type: boolean
+            default: false
+          name: data
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /internal/snapshotter/epochProcessingStatus:
+    get:
+      summary: Get Snapshotter Epoch Processing Status
+      description: |-
+        Endpoint to get the epoch processing status report.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to Depends(rate_limit_auth_check).
+
+        Returns:
+            Page[SnapshotterEpochProcessingReportItem]: The paginated epoch processing status report.
+      operationId: get_snapshotter_epoch_processing_status_internal_snapshotter_epochProcessingStatus_get
+      parameters:
+        - required: false
+          schema:
+            title: Page
+            minimum: 1
+            type: integer
+            default: 1
+          name: page
+          in: query
+        - required: false
+          schema:
+            title: Size
+            maximum: 30
+            minimum: 1
+            type: integer
+            default: 10
+          name: size
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomizedPage_SnapshotterEpochProcessingReportItem_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /task_status:
+    post:
+      summary: Get Task Status Post
+      description: |-
+        Endpoint to get the status of a task for a given wallet address.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            task_status_request (TaskStatusRequest): The request body containing the task type and wallet address.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit and authorization dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: A dictionary containing the status of the task and a message.
+      operationId: get_task_status_post_task_status_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskStatusRequest'
+        required: true
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 components:
   securitySchemes:
     api_key:
       type: apiKey
       name: X-API-Key
       in: header
-paths:
-  /snapshots/{pair_contract_address}:
-    get:
-      tags:
-        - default
-      summary: Get past snapshots for a token pair
-      description: >-
-        This API provides an option to fetch last `n` snapshots for a token
-        pair. It supports fetching the `tradeVolume` or the `pairTotalReserves`
-        snapshots.
-
-
-        ## Response Details
-
-
-        Returns an array of snapshots for the token pair. data.payload is
-        returned only if data flag is passed as true. Otherwise only the
-        snapshot CID stored in IPFS is returned.
-
-
-        ### Pair Total Reserves Response
-
-
-        Response payload is stored in data.payload which contains TokenReserves
-        and TokenReserves in USD for both tokens in the pair. Reserves are
-        returned for each blockHeight in the snapshot. It also has a data.cid
-        field which has the CID of the snapshot stored on IPFS.
-
-
-        ### TradeVolume Response
-
-
-        Response payload is stored in data.payload or the blockHeights in
-        between which this snapshot is generated. Payload contains the
-        following:
-
-
-        - raw categorized transaction logs(Swap. Mint and Burn) of the token
-        pair
-
-        - computed TradeVolume (both in native token value and USD) for each
-        token categorized by Swap, Mint and Burn
-
-        - computed overall TradeVolume
-
-        - Total fees
-      parameters:
-        - name: maxCount
-          in: query
-          schema:
-            type: integer
-          description: Number of snapshots to fetch
-          example: '3'
-        - name: stream
-          in: query
-          schema:
-            type: string
-          description: >-
-            Specifies the stream from which snapshots have to be returned,
-            currently only trade_volume or pair_total_reserves are supported.
-          example: trade_volume
-        - name: data
-          in: query
-          schema:
-            type: boolean
-          description: >-
-            If set to true returns snapshot(s) data,  otherwise only the IPFS
-            CID of the snapshot(s) is returned
-          example: 'true'
-        - name: pair_contract_address
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs-recent-logs:
-    get:
-      tags:
-        - default
-      summary: Get recent transaction logs for a token pair
-      description: >-
-        Get the most recent `upto 75` transaction logs for any token pair.
-
-
-        #### Response Details
-
-
-        Response is an array of transaction logs enriched with additional
-        information such as Trade Amount in USD, token amounts etc.
-      parameters:
-        - name: pair_contract
-          in: query
-          schema:
-            type: string
-          example: '{{pair_contract_address}}'
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs:
-    get:
-      tags:
-        - default
-      summary: Get all token pairs aggregated data
-      description: >-
-        This API provides the latest aggregated data for the tracked token-pairs
-        such as trade volume for the last 24-hour, trade volume for last 7-days.
-
-
-        #### Response Details
-
-
-        Returns an array of list of token pairs sorted based on liquidity with
-        following information for each pair
-
-
-        - 24-hour trade volume USD
-
-        - 7-days trade volume USD
-
-        - Head and tail CIDs of DAG Chain used to arrive at 24-hour and 7d
-        volume
-
-        - 24-hour fees
-
-        - Liquidity,TradeVolume(s) of each Token
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs/snapshots:
-    get:
-      tags:
-        - default
-      summary: Get token pairs aggregated data snapshot list
-      description: >-
-        This API returns the last 20 block heights at which aggregated data
-        snapshots for all the tracked token pairs are available.
-
-
-        Response is an array of blockHeights.
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pairs/{block_height}:
-    get:
-      tags:
-        - default
-      summary: Get token pairs aggregated data at a block height
-      description: >-
-        This API returns aggregated data snapshot for all the tracked token
-        pairs at specified blockHeight (which can be retrieved from snapshots
-        list API).
-
-
-        Response structure is same as explained in token pairs aggregated data
-        API.
-      parameters:
-        - name: block_height
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-pair/{pair_contract_address}:
-    get:
-      tags:
-        - default
-      summary: Get single token pair aggregated data
-      description: >-
-        This API provides the latest aggregated data for the provided token-pair
-        contract address such as trade volume for the last 24-hour, trade volume
-        for last 7-days.
-      parameters:
-        - name: pair_contract_address
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /pair_address:
-    get:
-      tags:
-        - default
-      summary: Get token pair contract address by contained tokens addresses
-      description: >-
-        This API provides the pair contract address from the protocol which
-        contains token1 and token2.
-      parameters:
-        - name: token0
-          in: query
-          schema:
-            type: string
-          description: 'address of 1st token contained in the pair contract '
-          example: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
-        - name: token1
-          in: query
-          schema:
-            type: string
-          description: address of 2nd token contained in the pair contract
-          example: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens:
-    get:
-      tags:
-        - default
-      summary: Get tokens aggregated data
-      description: >-
-        This API provides aggregated data for all tracked tokens such as trade
-        volume for the last 24-hour, trade volume for last 7-days snapshotted at
-        a specific block height.
-
-
-        #### Response Details
-
-
-        Returns an array of list of tokens sorted based on liquidity with
-        following information for each token
-
-
-        - 24-hour trade volume USD
-
-        - 7-days trade volume USD
-
-        - Liquidity
-
-        - Price of the token in USD at that height
-
-        - 24-hour percentage Price change for the token
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-token/{token_contract_address}:
-    get:
-      tags:
-        - default
-      summary: Get single token aggregated data snapshot
-      parameters:
-        - name: token_contract_address
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens/snapshots:
-    get:
-      tags:
-        - default
-      summary: Get token aggregated data snapshots list
-      description: >-
-        This API returns the last 20 block heights at which aggregated data
-        snapshots for all the tracked tokens are available.
-
-
-        Response is an array of blockHeights.
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens/{block_height}:
-    get:
-      tags:
-        - default
-      summary: Get token aggregated data by block height
-      description: >-
-        This API returns aggregated data snapshot for all the tracked tokens at
-        specified blockHeight (which can be retrieved from snapshots list API).
-
-
-        Response structure is same as explained in token aggregated data API.
-      parameters:
-        - name: block_height
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-tokens-recent-logs:
-    get:
-      tags:
-        - default
-      summary: Get recent transaction logs for a token
-      description: >-
-        Get the most recent `upto 75` transaction logs for any token.
-
-
-        #### Response Details
-
-
-        Response is an array of transaction logs enriched with additional
-        information such as Trade Amount in USD, token amounts etc.
-      parameters:
-        - name: token_contract
-          in: query
-          schema:
-            type: string
-          example: '{{token_contract_address}}'
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-daily-stats:
-    get:
-      tags:
-        - default
-      summary: Get overall daily stats
-      description: >-
-        This API returns the latest snapshot for the dailyStats which includes
-        the following information:
-
-
-        - 24-hour volume and 24-hour percentage change
-
-        - TVL and its 24-hour percentage change
-
-        - 24-hour Fees and its percentage change
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-daily-stats/snapshots:
-    get:
-      tags:
-        - default
-      summary: Get daily stats snapshot list
-      description: >-
-        This API returns the last 20 block heights at which snapshots for
-        dailyStats are available.
-
-
-        Response is an array of blockHeights.
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
-  /v2-daily-stats/{block_height}:
-    get:
-      tags:
-        - default
-      summary: Get daily stats by block height
-      description: >-
-        This API returns aggregated data snapshot for daily stats at specified
-        blockHeight (which can be retrieved from snapshots list API).
-
-
-        Response structure is same as explained in overall daily Stats API.
-      parameters:
-        - name: block_height
-          in: path
-          schema:
-            type: string
-          required: true
-      security:
-        - api_key: []
-      responses:
-        '200':
-          description: Successful response
+  schemas:
+    CustomizedPage_SnapshotterEpochProcessingReportItem_:
+      title: CustomizedPage[SnapshotterEpochProcessingReportItem]
+      required:
+        - items
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotterEpochProcessingReportItem'
+        total:
+          title: Total
+          minimum: 0
+          type: integer
+        page:
+          title: Page
+          minimum: 1
+          type: integer
+        size:
+          title: Size
+          minimum: 1
+          type: integer
+        pages:
+          title: Pages
+          minimum: 0
+          type: integer
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    SnapshotterEpochProcessingReportItem:
+      title: SnapshotterEpochProcessingReportItem
+      type: object
+      properties:
+        epochId:
+          title: Epochid
+          type: integer
+          default: 0
+        epochEnd:
+          title: Epochend
+          type: integer
+          default: 0
+        transitionStatus:
+          title: Transitionstatus
+          type: object
+          additionalProperties:
+            anyOf:
+              - $ref: '#/components/schemas/SnapshotterStateUpdate'
+              - type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/SnapshotterStateUpdate'
+          default: {}
+    SnapshotterStateUpdate:
+      title: SnapshotterStateUpdate
+      required:
+        - status
+        - timestamp
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+        error:
+          title: Error
+          type: string
+        extra:
+          title: Extra
+          type: object
+        timestamp:
+          title: Timestamp
+          type: integer
+    TaskStatusRequest:
+      title: TaskStatusRequest
+      required:
+        - task_type
+        - wallet_address
+      type: object
+      properties:
+        task_type:
+          title: Task Type
+          type: string
+        wallet_address:
+          title: Wallet Address
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
